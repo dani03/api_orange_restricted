@@ -1,66 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Documentation de l'API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bienvenue dans la documentation de cette API REST. Suivez les instructions ci-dessous pour installer et démarrer le projet.
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Vous avez deux options pour installer ce projet :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. **Installation avec Docker**
+2. **Installation classique**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Installation avec Docker
 
-## Learning Laravel
+Pour installer le projet via Docker, suivez ces étapes :
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clonez ou téléchargez le dépôt GitHub avec la commande suivante :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    ```bash
+    git clone https://github.com/dani03/api_orange_restricted.git
+    ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Accédez au répertoire du projet, puis exécutez la commande suivante pour construire et démarrer les services :
 
-## Laravel Sponsors
+    ```bash
+    make build-start
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    Cette commande effectuera les actions suivantes :
 
-### Premium Partners
+    - Recrée le serveur Nginx.
+    - Installe les dépendances via Composer.
+    - Crée un fichier `.env` basé sur le fichier `.env.exemple` et remplit les variables liées à la base de données (déclarées dans le fichier `docker-compose.yml` sous le service MySQL).
+    - Génère la clé d'application avec `php artisan key:generate`.
+    - Exécute les migrations et les seeders pour initialiser la base de données.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+3. Une fois l'installation terminée, vous pouvez vérifier que l'API fonctionne en accédant à l'URL suivante :
 
-## Contributing
+    ```
+    http://localhost:4000/api/test
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Vous pouvez consulter la documentation complète de l'API à l'adresse suivante :
 
-## Code of Conduct
+    ```
+    http://localhost:4000/api
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. Pour exécuter manuellement les migrations à l'intérieur du conteneur Docker, utilisez la commande suivante :
+    ```bash
+    docker compose run --rm artisan migrate
+    ```
+6. Pour exécuter dépendences à l'intérieur du conteneur Docker, utilisez la commande suivante :
+    ```bash
+    docker compose run --rm composer install
+    ```
 
-## Security Vulnerabilities
+### 2. Installation classique
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Pour une installation sans Docker, suivez ces étapes :
 
-## License
+1. Clonez ou téléchargez le dépôt GitHub avec la commande suivante :
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    git clone https://github.com/dani03/api_orange_restricted.git
+    ```
+
+2. Accédez au répertoire du projet et créez un fichier `.env` à la racine. Copiez-collez le contenu du fichier `.env.exemple` dans le nouveau fichier `.env`. Remplacez ensuite les informations de connexion à la base de données avec vos propres identifiants :
+
+    ```plaintext
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel_11_api
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+3. Générez la clé d'application avec la commande suivante :
+
+    ```bash
+    php artisan key:generate
+    ```
+
+4. Lancez les migrations pour créer les tables dans la base de données :
+
+    ```bash
+    php artisan migrate
+    ```
+
+5. Si vous souhaitez remplir la base de données avec des données initiales, exécutez les seeders :
+
+    ```bash
+    php artisan db:seed
+    ```
+
+6. Pour démarrer le serveur localement, exécutez la commande suivante :
+
+    ```bash
+    php artisan serve --port 4000
+    ```
+
+7. Une fois les migrations et les seeders terminés, vous pouvez vérifier l'accès à l'API en accédant à l'URL suivante :
+
+    ```
+    http://localhost:4000/api/test
+    ```
+
+8. Votre projet sera accessible à l'adresse suivante :
+
+    ```
+    http://localhost:4000
+    ```
+
+    Vous pouvez consulter la documentation complète de l'API ici :
+
+    ```
+    http://localhost:4000/api
+    ```
+
+Cette documentation vous guide à travers l'installation et la configuration du projet.

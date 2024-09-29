@@ -42,7 +42,7 @@ env-file:
 		echo "DB_CONNECTION=mysql" >> $(ENV_FILE); \
 		echo "DB_HOST=mysql" >> $(ENV_FILE); \
 		echo "DB_PORT=3306" >> $(ENV_FILE); \
-		echo "DB_DATABASE=quizdevbdd" >> $(ENV_FILE); \
+		echo "DB_DATABASE=laravel_11_api" >> $(ENV_FILE); \
 		echo "DB_USERNAME=homestead" >> $(ENV_FILE); \
 		echo "DB_PASSWORD=secret" >> $(ENV_FILE); \
 		echo "$(ENV_FILE) a été créer."; \
