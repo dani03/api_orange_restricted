@@ -29,6 +29,7 @@ class CommandeController extends Controller
      */
     public function index(Request $request)
     {
+
         // applique les filtres s'il y a des paramètres de requête
         if ($request->query()) {
             $commandes = app(Pipeline::class)
