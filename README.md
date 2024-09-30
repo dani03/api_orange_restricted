@@ -1,4 +1,4 @@
-# Documentation de l'API
+# Installation et configuration de l'API
 
 Bienvenue dans la documentation de cette API REST. Suivez les instructions ci-dessous pour installer et démarrer le projet.
 
