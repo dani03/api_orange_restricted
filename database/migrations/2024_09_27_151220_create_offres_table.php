@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
+            $table->double('frais_mensuel')->default(0.0)->nullable();
+            $table->double('frais_installation')->default(0.0)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

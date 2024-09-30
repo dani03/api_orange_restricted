@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(Client::class);
             $table->foreignIdFor(Offre::class);
             $table->integer('status')->default(0);
+            $table->double('global_revenue')->default(0.0)->nullable();
             $table->string('option_technology')->nullable();
             $table->softDeletes();
             $table->timestamps();

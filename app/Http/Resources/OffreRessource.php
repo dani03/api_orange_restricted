@@ -18,6 +18,8 @@ class OffreRessource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'frais_mensuel' => $this->frais_mensuel .' €' ,
+            'frais_installation' => $this->frais_installation .' €' ,
             'created_at' =>  Carbon::make($this->created_at)->diffForHumans(),
             'updated_at' => Carbon::make($this->updated_at)->diffForHumans(),
         ];

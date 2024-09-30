@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Offre extends Model
 {
+
+    protected $fillable = ['name', 'frais_mensuel', 'frais_installation'];
     use HasFactory, SoftDeletes;
+
+
 
 
     public function commandes(): HasMany {
