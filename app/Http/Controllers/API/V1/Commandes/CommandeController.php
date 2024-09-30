@@ -99,7 +99,7 @@ class CommandeController extends Controller
             return response()->json(['message' => 'commande mise à jour avec succès. '], Response::HTTP_OK);
         }
 
-        return response()->json(['message' => 'aucune mise à jour effectuée.'], Response::HTTP_UNAUTHORIZED);
+        return response()->json(['message' => 'aucune mise à jour effectuée.'], Response::HTTP_OK);
 
     }
 
