@@ -95,37 +95,39 @@ Pour une installation sans Docker, suivez ces étapes :
     DB_PASSWORD=
     ```
 
-3.  Générez la clé d'application avec la commande suivante :
+3. Dans le dossier database situé à la racine du projet créer un fichier database.sqlite
+
+4. Générez la clé d'application avec la commande suivante :
 
     ```bash
     php artisan key:generate
     ```
 
-4.  Lancez les migrations pour créer les tables dans la base de données :
+5. Lancez les migrations pour créer les tables dans la base de données :
 
     ```bash
     php artisan migrate
     ```
 
-5.  Si vous souhaitez remplir la base de données avec des données initiales, exécutez les seeders :
+6. Si vous souhaitez remplir la base de données avec des données initiales, exécutez les seeders :
 
     ```bash
     php artisan db:seed
     ```
 
-6.  Pour démarrer le serveur localement, exécutez la commande suivante :
+7. Pour démarrer le serveur localement, exécutez la commande suivante :
 
     ```bash
     php artisan serve --port 4000
     ```
 
-7.  Une fois les migrations et les seeders terminés, vous pouvez vérifier l'accès à l'API en accédant à l'URL suivante :
+8. Une fois les migrations et les seeders terminés, vous pouvez vérifier l'accès à l'API en accédant à l'URL suivante :
 
     ```
     http://localhost:4000/api/test
     ```
 
-8.  Votre projet sera accessible à l'adresse suivante :
+9. Votre projet sera accessible à l'adresse suivante :
 
         ```
         http://localhost:4000
@@ -145,8 +147,10 @@ Pour une installation sans Docker, suivez ces étapes :
 
 Si vous rencontrez des problèmes
 effectuer les commandes suivantes :
-`php artisan cache:clear`
-`php artisan config:clear`
-`php artisan optimize`
+ ```
+ php artisan cache:clear
+ php artisan config:clear
+ php artisan optimize
+ ```
 
 Cette documentation vous guide à travers l'installation et la configuration du projet.
