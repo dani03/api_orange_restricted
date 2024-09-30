@@ -16,14 +16,14 @@ class CommandeRessource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-
+       $globalRevenue = round((double) $this->offre->frais_mensuel + (double) $this->offre->frais_installation, 2);
         return [
             'id' => $this->id,
             'numberLicences' => $this->numberLicences,
             'description' => $this->description,
             'statut' =>  Status::fromValue($this->status)->label(),
             'statut_number' =>  $this->status,
-            'revenue_global' => $this->global_revenue,
+            'revenue_global' => $globalRevenue,
             'options_technology' => json_decode($this->option_technology),
             'created_at' =>  Carbon::make($this->created_at)->diffForHumans(),
             'updated_at' => Carbon::make($this->updated_at)->diffForHumans(),
