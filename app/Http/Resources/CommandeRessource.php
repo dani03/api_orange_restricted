@@ -23,6 +23,7 @@ class CommandeRessource extends JsonResource
             'description' => $this->description,
             'statut' =>  Status::fromValue($this->status)->label(),
             'statut_number' =>  $this->status,
+            'revenue_global' => $this->global_revenue,
             'options_technology' => json_decode($this->option_technology),
             'created_at' =>  Carbon::make($this->created_at)->diffForHumans(),
             'updated_at' => Carbon::make($this->updated_at)->diffForHumans(),

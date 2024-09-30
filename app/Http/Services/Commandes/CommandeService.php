@@ -48,21 +48,11 @@ class CommandeService
         return $parameters;
     }
 
-    public function findCommandWithFilter($request, $params)
-    {
-        foreach ($params as $param) {
-            if ($request->filled($param) && $param === 'offre') {
-                $commande = Commande::where(["offre_id", $request->get($param)])->get();
-            }
-
-
-        }
-    }
-
     public static function makeArrayData(CommandeStoreRequest $request): array
     {
         return [
             'numberLicences' => $request->get('numberLicence'),
+            'global_revenue' => $request->get('global_revenue'),
             'description' => $request->get('description'),
             'client_id' => $request->get('client_identifier'),
             'offre_id' => $request->get('offre_identifier'),
@@ -78,6 +68,7 @@ class CommandeService
         $data = [
             'id' => $commande->id,
             'numberLicences' => $request->get('numberLicence') ?? $commande->numberLicences,
+            'global_revenue' => $request->get('global_revenue') ?? $commande->global_revenue,
             'description' => $request->get('description') ?? $commande->description,
             'client_id' => $request->get('client_identifier') ?? $commande->client_id,
             'offre_id' => $request->get('offre_identifier') ?? $commande->offre_id,

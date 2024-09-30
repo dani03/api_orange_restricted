@@ -18,6 +18,8 @@ class OffreFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'frais_mensuel' => $this->faker->numberBetween(0, 200),
+            'frais_installation' => $this->faker->numberBetween(0, 200),
         ];
     }
 }

@@ -17,7 +17,7 @@ class Commande extends Model
     use HasFactory, SoftDeletes;
 
 
-    protected $fillable = ['numberLicences', 'description', 'client_id', 'offre_id','option_technology'];
+    protected $fillable = ['numberLicences', 'description', 'client_id', 'offre_id','option_technology', 'global_revenue'];
 
     // Une commande est rattachée à une offre
     public function offre(): BelongsTo {
