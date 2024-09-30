@@ -57,7 +57,25 @@ http://localhost:4000/docs/api
     ```bash
     docker compose run --rm composer install
     ```
-7. Accès à phpmyadmin sur le port 2023 : http://localhost:2023 
+7. Accès à phpmyadmin sur le port 2023 : http://localhost:2023
+
+8. si la commande `make` ne fonctionne pas utiliser ces commandes à la suite :
+```bash
+docker compose up --build -d nginx
+touch ./database/database.sqlite
+docker compose run --rm composer install
+
+créer un fichier .env file à la racine du projet comme indiqué dans la partie de l\'installation classique
+et ajouter y le les variable correspondantes et leurs valeurs
+
+docker compose run --rm artisan key:generate
+docker compose run --rm artisan migrate
+docker compose run --rm artisan db:seed
+
+
+
+```
+tous vos containers doivent être au vert si vous avez docker desktop.
 
     Si vous rencontrez des problèmes
     effectuer les commandes suivantes :
@@ -66,6 +84,7 @@ http://localhost:4000/docs/api
     `docker compose run --rm artisan optimze`
 
 pour nettoyer le cache et les configurations supprimées
+
 
 8. Pour stopper les containers taper la commande `docker compose down` vos données ne seront pas perdues. 
 
