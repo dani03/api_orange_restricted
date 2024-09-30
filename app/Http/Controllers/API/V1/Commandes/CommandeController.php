@@ -108,6 +108,14 @@ class CommandeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $commande = $this->commandeService->getCommande($id);
+        if(!$commande) {
+            return response()->json(['message' => 'la commande n\'existe pas. '], Response::HTTP_NOT_FOUND);
+        }
+      if($this->commandeService->destroyTheCommande($commande)){
+          return response()->json(['message' => 'la commande a été supprimée. '], Response::HTTP_OK);
+      }
+        return response()->json(['message' => 'un problème est survenue. '], Response::HTTP_INTERNAL_SERVER_ERROR);
+
     }
 }
