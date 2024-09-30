@@ -28,9 +28,11 @@ Pour installer le projet via Docker, suivez ces étapes :
     Cette commande effectuera les actions suivantes :
 
     - Recrée le serveur Nginx.
+    - créer un fichier database.sqlite dans le dossier `database`
     - Installe les dépendances via Composer.
     - Crée un fichier `.env` basé sur le fichier `.env.exemple` et remplit les variables liées à la base de données (déclarées dans le fichier `docker-compose.yml` sous le service MySQL).
     - Génère la clé d'application avec `php artisan key:generate`.
+    - créer un dossier `mysql` à la racine qui sera votre base de données.
     - Exécute les migrations et les seeders pour initialiser la base de données.
 
 3. Une fois l'installation terminée, vous pouvez vérifier que l'API fonctionne en accédant à l'URL suivante :
@@ -62,12 +64,15 @@ http://localhost:4000/api
     ```bash
     docker compose run --rm composer install
     ```
+7. Accès à phpmyadmin sur le port 2023 : http://localhost:2023 
 
     Si vous rencontrez des problèmes
     effectuer les commandes suivantes :
     `docker compose run --rm artisan cache:clear`
     `docker compose run --rm artisan config:clear`
     `docker compose run --rm artisan optimze`
+
+pour nettoyer le cache et les configurations supprimées
 
 ### 2. Installation classique
 
