@@ -15,11 +15,11 @@ class ClientResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-           'id' => $this->id,
-           'nom legal' => $this->nom_legal,
-           'siret' => $this->siret,
-           'siren' => $this->siren,
-            'commandes' => $this->commandes,
+            'id' => $this->id,
+            'nom legal' => $this->nom_legal,
+            'siret' => $this->siret,
+            'siren' => $this->siren,
+            'commandes' => CommandeRessource::collection($this->commandes),
         ];
     }
 }

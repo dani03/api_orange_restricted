@@ -6,14 +6,16 @@ use App\Http\Controllers\API\V1\Clients\ClientController;
 use App\Http\Controllers\API\V1\Commandes\CommandeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
 Route::post('register', RegisterController::class);
+// juste pour vérifier qu'on est bien connecté à l'api
 Route::get('test', static function() {
-    return "Vous êtes bien à l'API.";
+    return response()->json("Vous êtes bien à l'API.", Response::HTTP_OK) ;
 });
 Route::post('login', LoginController::class);
 Route::post('register', RegisterController::class);

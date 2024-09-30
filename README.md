@@ -39,32 +39,47 @@ Pour installer le projet via Docker, suivez ces étapes :
     http://localhost:4000/api/test
     ```
 
-4. Vous pouvez consulter la documentation complète de l'API à l'adresse suivante :
+4. Vous pouvez consulter la documentation complète de l'API à l'adresse suivante avec scramble :
 
-    ```
-    http://localhost:4000/api
-    ```
+```
+http://localhost:4000/docs/api
+
+```
+
+ou avec api plateform :
+
+```
+http://localhost:4000/api
+
+```
 
 5. Pour exécuter manuellement les migrations à l'intérieur du conteneur Docker, utilisez la commande suivante :
     ```bash
     docker compose run --rm artisan migrate
     ```
 6. Pour exécuter dépendences à l'intérieur du conteneur Docker, utilisez la commande suivante :
+
     ```bash
     docker compose run --rm composer install
     ```
+
+    Si vous rencontrez des problèmes
+    effectuer les commandes suivantes :
+    `docker compose run --rm artisan cache:clear`
+    `docker compose run --rm artisan config:clear`
+    `docker compose run --rm artisan optimze`
 
 ### 2. Installation classique
 
 Pour une installation sans Docker, suivez ces étapes :
 
-1. Clonez ou téléchargez le dépôt GitHub avec la commande suivante :
+1.  Clonez ou téléchargez le dépôt GitHub avec la commande suivante :
 
     ```bash
     git clone https://github.com/dani03/api_orange_restricted.git
     ```
 
-2. Accédez au répertoire du projet et créez un fichier `.env` à la racine. Copiez-collez le contenu du fichier `.env.exemple` dans le nouveau fichier `.env`. Remplacez ensuite les informations de connexion à la base de données avec vos propres identifiants :
+2.  Accédez au répertoire du projet et créez un fichier `.env` à la racine. Copiez-collez le contenu du fichier `.env.exemple` dans le nouveau fichier `.env`. Remplacez ensuite les informations de connexion à la base de données avec vos propres identifiants :
 
     ```plaintext
     DB_CONNECTION=mysql
@@ -75,46 +90,58 @@ Pour une installation sans Docker, suivez ces étapes :
     DB_PASSWORD=
     ```
 
-3. Générez la clé d'application avec la commande suivante :
+3.  Générez la clé d'application avec la commande suivante :
 
     ```bash
     php artisan key:generate
     ```
 
-4. Lancez les migrations pour créer les tables dans la base de données :
+4.  Lancez les migrations pour créer les tables dans la base de données :
 
     ```bash
     php artisan migrate
     ```
 
-5. Si vous souhaitez remplir la base de données avec des données initiales, exécutez les seeders :
+5.  Si vous souhaitez remplir la base de données avec des données initiales, exécutez les seeders :
 
     ```bash
     php artisan db:seed
     ```
 
-6. Pour démarrer le serveur localement, exécutez la commande suivante :
+6.  Pour démarrer le serveur localement, exécutez la commande suivante :
 
     ```bash
     php artisan serve --port 4000
     ```
 
-7. Une fois les migrations et les seeders terminés, vous pouvez vérifier l'accès à l'API en accédant à l'URL suivante :
+7.  Une fois les migrations et les seeders terminés, vous pouvez vérifier l'accès à l'API en accédant à l'URL suivante :
 
     ```
     http://localhost:4000/api/test
     ```
 
-8. Votre projet sera accessible à l'adresse suivante :
+8.  Votre projet sera accessible à l'adresse suivante :
+
+        ```
+        http://localhost:4000
+        ```
+
+        Vous pouvez consulter la documentation complète de l'API avec scrambble :
+
+        ```
+        http://localhost:4000/docs/api
+        ```
+
+    ou avec api plateform:
 
     ```
-    http://localhost:4000
+        http://localhost:4000/api
     ```
 
-    Vous pouvez consulter la documentation complète de l'API ici :
-
-    ```
-    http://localhost:4000/api
-    ```
+Si vous rencontrez des problèmes
+effectuer les commandes suivantes :
+`php artisan cache:clear`
+`php artisan config:clear`
+`php artisan optimize`
 
 Cette documentation vous guide à travers l'installation et la configuration du projet.
