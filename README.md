@@ -48,13 +48,6 @@ http://localhost:4000/docs/api
 
 ```
 
-ou avec api plateform :
-
-```
-http://localhost:4000/api
-
-```
-
 5. Pour exécuter manuellement les migrations à l'intérieur du conteneur Docker, utilisez la commande suivante :
     ```bash
     docker compose run --rm artisan migrate
@@ -73,6 +66,8 @@ http://localhost:4000/api
     `docker compose run --rm artisan optimze`
 
 pour nettoyer le cache et les configurations supprimées
+
+8. Pour stopper les containers taper la commande `docker compose down` vos données ne seront pas perdues. 
 
 ### 2. Installation classique
 
@@ -97,37 +92,41 @@ Pour une installation sans Docker, suivez ces étapes :
 
 3. Dans le dossier database situé à la racine du projet créer un fichier database.sqlite
 
-4. Générez la clé d'application avec la commande suivante :
+4. lancer l'installation des dépendances avec la commande `composer install`
+
+5. Générez la clé d'application avec la commande suivante :
 
     ```bash
     php artisan key:generate
     ```
 
-5. Lancez les migrations pour créer les tables dans la base de données :
+6. dans votre SGBD (phpmyadmin, mysql workbench etc...) créer une base de données `laravel_11_api`
+ce nom doit correspondre à la valeur de `DB_DATABASE`  situé dans le fichier `.env`
+7. Lancez les migrations pour créer les tables dans la base de données :
 
     ```bash
     php artisan migrate
     ```
 
-6. Si vous souhaitez remplir la base de données avec des données initiales, exécutez les seeders :
+8. Si vous souhaitez remplir la base de données avec des données initiales, exécutez les seeders :
 
     ```bash
     php artisan db:seed
     ```
 
-7. Pour démarrer le serveur localement, exécutez la commande suivante :
+9. Pour démarrer le serveur localement, exécutez la commande suivante :
 
     ```bash
     php artisan serve --port 4000
     ```
 
-8. Une fois les migrations et les seeders terminés, vous pouvez vérifier l'accès à l'API en accédant à l'URL suivante :
+10. Une fois les migrations et les seeders terminés, vous pouvez vérifier l'accès à l'API en accédant à l'URL suivante :
 
     ```
     http://localhost:4000/api/test
     ```
 
-9. Votre projet sera accessible à l'adresse suivante :
+11. Votre projet sera accessible à l'adresse suivante :
 
         ```
         http://localhost:4000
@@ -139,11 +138,6 @@ Pour une installation sans Docker, suivez ces étapes :
         http://localhost:4000/docs/api
         ```
 
-    ou avec api plateform:
-
-    ```
-        http://localhost:4000/api
-    ```
 
 Si vous rencontrez des problèmes
 effectuer les commandes suivantes :
