@@ -79,5 +79,9 @@ class CommandeService
 
     }
 
+    public function destroyTheCommande(Commande $commande): bool  {
+       return $this->commandeRepository->delete($commande);
+    }
+
 
 }

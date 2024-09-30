@@ -44,4 +44,9 @@ class CommandeRepository
         return Commande::with(['technologies', 'offre'])->get();
     }
 
+
+    public function delete(Commande $commande): bool {
+       return  $commande->delete();
+    }
+
 }
